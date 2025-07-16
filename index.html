@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchen Essentials - Premium Kitchen Tools & Gadgets</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1603048719539-1c6d0ba713e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .feature-icon {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+            color: #f59e0b;
+        }
+        .newsletter-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating-chicken {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-utensils text-yellow-500 text-2xl"></i>
+                <a href="#" class="text-xl font-bold text-gray-800">Kitchen Essentials</a>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#products" class="text-gray-700 hover:text-yellow-600 transition">Products</a>
+                <a href="#features" class="text-gray-700 hover:text-yellow-600 transition">Features</a>
+                <a href="#reviews" class="text-gray-700 hover:text-yellow-600 transition">Reviews</a>
+                <a href="#blog" class="text-gray-700 hover:text-yellow-600 transition">Blog</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-gray-700 hover:text-yellow-600"><i class="fas fa-search"></i></a>
+                <a href="#" class="text-gray-700 hover:text-yellow-600"><i class="fas fa-shopping-cart"></i></a>
+                <button class="md:hidden text-gray-700">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg bg-gray-900 text-white py-20 md:py-32 relative">
+        <div class="absolute inset-0 bg-black bg-opacity-50" style="background-image: url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'); background-size: cover; background-position: center;"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-2xl">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">Premium Kitchen Tools</h1>
+                <p class="text-xl md:text-2xl mb-8">Discover high-quality kitchen gadgets that will elevate your cooking experience and make meal prep effortless!</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#products" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg text-center transition duration-300">Shop Now</a>
+                    <a href="#features" class="bg-white hover:bg-gray-100 text-gray-800 font-bold py-3 px-6 rounded-lg text-center transition duration-300">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Why Our Kitchen Tools?</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Our products are carefully selected to bring efficiency and joy to your cooking experience with premium quality materials.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card bg-gray-50 p-8 rounded-lg text-center hover:shadow-lg transition duration-300">
+                    <div class="feature-icon text-yellow-500 text-4xl mb-4">
+                        <i class="fas fa-feather-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Unique Designs</h3>
+                    <p class="text-gray-600">Each product features charming chicken designs that add personality to your kitchen.</p>
+                </div>
+                <div class="feature-card bg-gray-50 p-8 rounded-lg text-center hover:shadow-lg transition duration-300">
+                    <div class="feature-icon text-yellow-500 text-4xl mb-4">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">High Quality</h3>
+                    <p class="text-gray-600">Made from durable materials that stand the test of time and frequent use.</p>
+                </div>
+                <div class="feature-card bg-gray-50 p-8 rounded-lg text-center hover:shadow-lg transition duration-300">
+                    <div class="feature-icon text-yellow-500 text-4xl mb-4">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Perfect Gifts</h3>
+                    <p class="text-gray-600">Ideal presents for chicken lovers, home cooks, and kitchen enthusiasts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Featured Products</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Browse our selection of the most egg-citing chicken kitchen gadgets available.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://m.media-amazon.com/images/I/71vUw5oH1QL._AC_SL1500_.jpg" alt="Chicken Egg Separator" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded">BESTSELLER</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Premium Egg Separator</h3>
+                        <p class="text-gray-600 mb-4">This ergonomic tool perfectly separates egg whites from yolks with precision and ease.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-yellow-600">$12.99</span>
+                            <a href="https://www.amazon.com/s?k=chicken+egg+separator" target="_blank" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://m.media-amazon.com/images/I/71QYJ9BqWVL._AC_SL1500_.jpg" alt="Hen Salt and Pepper Shakers" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Hen Salt & Pepper Shakers</h3>
+                        <p class="text-gray-600 mb-4">Adorable ceramic chicken shakers that add farmhouse charm to your dining table.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-yellow-600">$18.95</span>
+                            <a href="https://www.amazon.com/s?k=chicken+salt+and+pepper+shakers" target="_blank" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://m.media-amazon.com/images/I/71j5+Z+-QVL._AC_SL1500_.jpg" alt="Chicken Kitchen Timer" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">NEW</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Clucking Kitchen Timer</h3>
+                        <p class="text-gray-600 mb-4">This timer doesn't just beep - it clucks when your food is ready! Perfect for poultry chefs.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-yellow-600">$15.49</span>
+                            <a href="https://www.amazon.com/s?k=chicken+kitchen+timer" target="_blank" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://m.media-amazon.com/images/I/61b9G5U3wAL._AC_SL1500_.jpg" alt="Rooster Measuring Cups" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Rooster Measuring Cups</h3>
+                        <p class="text-gray-600 mb-4">Nesting measuring cups with charming rooster designs that look great on your counter.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-yellow-600">$24.99</span>
+                            <a href="https://www.amazon.com/s?k=chicken+measuring+cups" target="_blank" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition duration-300">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-8 rounded-lg transition duration-300">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="reviews" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">What Our Customers Say</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Don't just take our word for it - hear from our satisfied customers!</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-500 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-gray-600">5.0</span>
+                    </div>
+                    <p class="text-gray-700 mb-6">"The chicken egg separator is not only adorable but actually works better than any other separator I've tried. It's become my favorite kitchen tool!"</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah J." class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-bold">Sarah J.</h4>
+                            <p class="text-gray-600 text-sm">Home Cook</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-500 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-gray-600">5.0</span>
+                    </div>
+                    <p class="text-gray-700 mb-6">"I bought the rooster measuring cups as a gift for my wife who collects chicken-themed items. She absolutely loves them and uses them daily!"</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael T." class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-bold">Michael T.</h4>
+                            <p class="text-gray-600 text-sm">Happy Husband</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-500 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="text-gray-600">4.5</span>
+                    </div>
+                    <p class="text-gray-700 mb-6">"The clucking timer is so much fun! My kids love it and it's actually helped them get more interested in cooking. Highly recommend for families."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Lisa M." class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-bold">Lisa M.</h4>
+                            <p class="text-gray-600 text-sm">Mom of Three</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">From Our Blog</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Tips, tricks, and chicken-themed kitchen inspiration.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Blog Post 1" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-yellow-600 text-sm font-semibold">KITCHEN TIPS</span>
+                        <h3 class="text-xl font-bold my-2">5 Chicken-Themed Gadgets That Actually Improve Your Cooking</h3>
+                        <p class="text-gray-600 mb-4">Discover how these fun tools can make your kitchen time more efficient and enjoyable.</p>
+                        <a href="#" class="text-yellow-600 font-semibold hover:text-yellow-700 transition duration-300">Read More →</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Blog Post 2" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-yellow-600 text-sm font-semibold">GIFT GUIDE</span>
+                        <h3 class="text-xl font-bold my-2">The Perfect Chicken-Lover's Gift Guide for Any Occasion</h3>
+                        <p class="text-gray-600 mb-4">Find the ideal present for the poultry enthusiast in your life with our curated selection.</p>
+                        <a href="#" class="text-yellow-600 font-semibold hover:text-yellow-700 transition duration-300">Read More →</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Blog Post 3" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-yellow-600 text-sm font-semibold">RECIPES</span>
+                        <h3 class="text-xl font-bold my-2">Farmhouse Chicken Dinner Using Only Chicken-Shaped Tools</h3>
+                        <p class="text-gray-600 mb-4">A delicious recipe that lets you show off all your favorite chicken kitchen gadgets.</p>
+                        <a href="#" class="text-yellow-600 font-semibold hover:text-yellow-700 transition duration-300">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-yellow-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-md p-8 md:p-12 text-center">
+                <i class="fas fa-envelope-open-text text-yellow-500 text-5xl mb-6"></i>
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Join Our Flock!</h2>
+                <p class="text-gray-600 mb-8">Subscribe to our newsletter for exclusive deals, new product announcements, and chicken-themed kitchen tips.</p>
+                <form class="flex flex-col sm:flex-row gap-4">
+                    <input type="email" placeholder="Your email address" class="newsletter-input flex-grow px-4 py-3 border border-gray-300 rounded-lg focus:border-yellow-500">
+                    <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold px-6 py-3 rounded-lg transition duration-300">Subscribe</button>
+                </form>
+                <p class="text-gray-500 text-sm mt-4">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-utensils text-yellow-500 text-2xl"></i>
+                        <span class="text-xl font-bold">Kitchen Essentials</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Premium kitchen tools designed to make cooking easier and more enjoyable since 2015.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Shop</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">All Products</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">New Arrivals</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Bestsellers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Gift Sets</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Sale Items</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">About</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Our Story</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Reviews</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Affiliates</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Help</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Shipping</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>© 2023 Cluck & Cook. All rights reserved. | This site contains affiliate links.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for mobile menu toggle (could be expanded)
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('.md\\:hidden');
+            const mobileMenu = document.querySelector('.md\\:flex');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex');
+                mobileMenu.classList.toggle('flex-col');
+                mobileMenu.classList.toggle('absolute');
+                mobileMenu.classList.toggle('top-16');
+                mobileMenu.classList.toggle('left-0');
+                mobileMenu.classList.toggle('right-0');
+                mobileMenu.classList.toggle('bg-white');
+                mobileMenu.classList.toggle('p-4');
+                mobileMenu.classList.toggle('shadow-md');
+                mobileMenu.classList.toggle('space-y-4');
+                mobileMenu.classList.toggle('space-x-0');
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>
