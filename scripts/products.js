@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
             reducedPrice: 29.99,
             rating: 4.5, // Number of stars (e.g., 4.5 for 4 and a half stars)
             reviewsCount: '119,463',
-            affiliateLink: 'https://amzn.to/4nRrJC1'
+            affiliateLink: 'https://amzn.to/4nRrJC1',
+            pageLink: 'pages/product_1.html'
         },
         {
             id: 2,
@@ -29,7 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
             reducedPrice: 32.99,
             rating: 4.5,
             reviewsCount: '1,502',
-            affiliateLink: 'https://amzn.to/40YSquN'
+            affiliateLink: 'https://amzn.to/40YSquN',
+            pageLink: 'pages/product_1.html'
         },
         {
             id: 3,
@@ -43,7 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
             reducedPrice: 15.99,
             rating: 4.5,
             reviewsCount: '5,502',
-            affiliateLink: 'https://amzn.to/4kJohXD'
+            affiliateLink: 'https://amzn.to/4kJohXD',
+            pageLink: 'pages/product_1.html'
         },
         {
             id: 4,
@@ -57,7 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
             reducedPrice: 9.99,
             rating: 4,
             reviewsCount: '86',
-            affiliateLink: 'https://amzn.to/3IGUoK5'
+            affiliateLink: 'https://amzn.to/3IGUoK5',
+            pageLink: 'pages/product_1.html'
         },
         {
             id: 5,
@@ -71,7 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
             reducedPrice: 9.99,
             rating: 4.5,
             reviewsCount: '25',
-            affiliateLink: 'https://amzn.to/4kIR9Px'
+            affiliateLink: 'https://amzn.to/4kIR9Px',
+            pageLink: 'pages/product_1.html'
         },
         {
             id: 6,
@@ -85,7 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
             reducedPrice: 6.99,
             rating: 4.5,
             reviewsCount: '1,002',
-            affiliateLink: 'https://amzn.to/4m1Vpe8'
+            affiliateLink: 'https://amzn.to/4m1Vpe8',
+            pageLink: 'pages/product_1.html'
         },
         {
             id: 7,
@@ -99,7 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
             reducedPrice: 19.99,
             rating: 4.5,
             reviewsCount: '1,033',
-            affiliateLink: 'https://amzn.to/3TKr1Jd'
+            affiliateLink: 'https://amzn.to/3TKr1Jd',
+            pageLink: 'pages/product_1.html'
         },
         {
             id: 8,
@@ -143,11 +150,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const productCardHtml = `
             <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
-                <div class="relative">
-                    <img src="${product.image}" alt="${product.alt}" class="w-full object-cover">
-                    ${product.isBestseller ? `<div class="absolute top-2 right-2 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded">BESTSELLER</div>` : ''}
-                    ${product.isNew ? `<div class="absolute top-2 left-2 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded">NEW</div>` : ''}
-                </div>
+                <a href="${product.pageLink}" target="_blank">    
+                    <div class="relative">
+                        <img src="${product.image}" alt="${product.alt}" class="w-full object-cover">
+                        ${product.isBestseller ? `<div class="absolute top-2 right-2 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded">BESTSELLER</div>` : ''}
+                        ${product.isNew ? `<div class="absolute top-2 left-2 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded">NEW</div>` : ''}
+                    </div>
+                </a>
                 <div class="p-4">
                     <div class="flex justify-between items-start">
                         <div>
