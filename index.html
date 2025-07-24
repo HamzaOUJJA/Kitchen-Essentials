@@ -3,471 +3,638 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kitchen Essentials - Premium Kitchen Tools & Gadgets</title>
+    <title>HomeTool Hub | Premium Home Tools & Gadgets</title>
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .product-card:hover {
+        .hero-gradient {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .category-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         }
-        .hero-bg {
-            background-image: url('https://images.unsplash.com/photo-1603048719539-1c6d0ba713e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
+        .product-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-        .feature-icon {
-            transition: all 0.3s ease;
+        .deal-timer {
+            background: linear-gradient(45deg, #ff4e50, #f9d423);
         }
-        .feature-card:hover .feature-icon {
-            transform: scale(1.1);
-            color: #f59e0b;
+        .newsletter-bg {
+            background: linear-gradient(to right, #4b6cb7, #182848);
         }
-        .newsletter-input:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+        .tooltip {
+            position: relative;
+            display: inline-block;
         }
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
         }
-        .floating-chicken {
-            animation: float 3s ease-in-out infinite;
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .pulse {
+            animation: pulse 2s infinite;
         }
     </style>
 </head>
-<body class="bg-gray-50 font-sans">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <i class="fas fa-utensils text-yellow-500 text-2xl"></i>
-                <a href="#" class="text-xl font-bold text-gray-800">Kitchen Essentials</a>
+<body class="font-sans antialiased text-gray-800">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="#" class="text-3xl font-bold text-gray-800 flex items-center">
+                    <img src="images/favicon.svg" alt="" class="w-12 h-12 mr-2">
+                    <span>Home<span class="text-yellow-500">Tool</span>Hub</span>
+                </a>
             </div>
-            <div class="hidden md:flex space-x-8">
-                <a href="#products" class="text-gray-700 hover:text-yellow-600 transition">Products</a>
-                <a href="#features" class="text-gray-700 hover:text-yellow-600 transition">Features</a>
-                <a href="#reviews" class="text-gray-700 hover:text-yellow-600 transition">Reviews</a>
-                <a href="#blog" class="text-gray-700 hover:text-yellow-600 transition">Blog</a>
+            
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#" class="font-medium hover:text-yellow-500">Home</a>
+                <!-- <a href="#categories" class="font-medium hover:text-yellow-500">Categories</a> -->
+                <a href="#products" class="font-medium hover:text-yellow-500">Products</a>
+                <a href="#reviews" class="font-medium hover:text-yellow-500">Reviews</a>
+                <a href="#blog" class="font-medium hover:text-yellow-500">Blog</a>
             </div>
+            
             <div class="flex items-center space-x-4">
-                <a href="#" class="text-gray-700 hover:text-yellow-600"><i class="fas fa-search"></i></a>
-                <a href="#" class="text-gray-700 hover:text-yellow-600"><i class="fas fa-shopping-cart"></i></a>
-                <button class="md:hidden text-gray-700">
-                    <i class="fas fa-bars"></i>
+                <button class="p-2 rounded-full hover:bg-gray-100">
+                    <i class="fas fa-search text-gray-600"></i>
+                </button>
+                <button class="p-2 rounded-full hover:bg-gray-100 relative">
+                    <i class="fas fa-shopping-cart text-gray-600"></i>
+                    <span class="absolute -top-1 -right-1 bg-yellow-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                </button>
+                <button class="md:hidden p-2 rounded-full hover:bg-gray-100" id="mobile-menu-button">
+                    <i class="fas fa-bars text-gray-600"></i>
                 </button>
             </div>
         </div>
-    </nav>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white shadow-lg" id="mobile-menu">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#" class="block py-2 font-medium hover:text-yellow-500">Home</a>
+                <a href="#categories" class="block py-2 font-medium hover:text-yellow-500">Categories</a>
+                <a href="#reviews" class="block py-2 font-medium hover:text-yellow-500">Reviews</a>
+                <a href="#blog" class="block py-2 font-medium hover:text-yellow-500">Blog</a>
+            </div>
+        </div>
+    </header>
 
     <!-- Hero Section -->
-    <section class="hero-bg bg-gray-900 text-white py-20 md:py-32 relative">
-        <div class="absolute inset-0 bg-black bg-opacity-50" style="background-image: url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'); background-size: cover; background-position: center;"></div>
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="max-w-2xl">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">Premium Kitchen Tools</h1>
-                <p class="text-xl md:text-2xl mb-8">Discover high-quality kitchen gadgets that will elevate your cooking experience and make meal prep effortless!</p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#products" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg text-center transition duration-300">Shop Now</a>
-                    <a href="#features" class="bg-white hover:bg-gray-100 text-gray-800 font-bold py-3 px-6 rounded-lg text-center transition duration-300">Learn More</a>
+    <section class="hero-gradient py-16 md:py-24">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Upgrade Your Home With <span class="text-yellow-500">Smart Tools</span></h1>
+                <p class="text-lg mb-8 text-gray-700">Discover the latest and most innovative home tools and gadgets that make everyday tasks easier and more enjoyable.</p>
+                <div class="flex space-x-4">
+                    <a href="#products" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Shop Now</a>
+                    <a href="#products" class="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Today's Deals</a>
+                </div>
+                <div class="mt-8 flex items-center space-x-4">
+                    <div class="flex -space-x-2">
+                        <img src="https://randomuser.me/api/portraits/women/12.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="Customer">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="Customer">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="Customer">
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium">Trusted by 10,000+ customers</p>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-600 ml-1">4.8/5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/2 relative">
+                <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Kitchen Tools" class="rounded-lg shadow-xl w-full">
+                <div class="absolute -bottom-5 -left-5 bg-white p-4 rounded-lg shadow-lg">
+                    <div class="flex items-center">
+                        <div class="bg-yellow-100 p-3 rounded-full mr-3">
+                            <i class="fas fa-bolt text-yellow-500 text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold">Smart Kitchen Set</p>
+                            <p class="text-sm text-gray-600">50% OFF Today</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-16 bg-white">
+    <!-- Brands Section -->
+    <!-- <section class="py-12 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Why Our Kitchen Tools?</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Our products are carefully selected to bring efficiency and joy to your cooking experience with premium quality materials.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="feature-card bg-gray-50 p-8 rounded-lg text-center hover:shadow-lg transition duration-300">
-                    <div class="feature-icon text-yellow-500 text-4xl mb-4">
-                        <i class="fas fa-feather-alt"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Unique Designs</h3>
-                    <p class="text-gray-600">Each product features charming chicken designs that add personality to your kitchen.</p>
+            <h2 class="text-center text-2xl font-bold mb-10">Trusted By Leading Brands</h2>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+                <div class="flex justify-center items-center h-16">
+                    <img src="https://via.placeholder.com/150x60?text=Cuisinart" alt="Cuisinart" class="h-10 opacity-70 hover:opacity-100 transition duration-300">
                 </div>
-                <div class="feature-card bg-gray-50 p-8 rounded-lg text-center hover:shadow-lg transition duration-300">
-                    <div class="feature-icon text-yellow-500 text-4xl mb-4">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">High Quality</h3>
-                    <p class="text-gray-600">Made from durable materials that stand the test of time and frequent use.</p>
+                <div class="flex justify-center items-center h-16">
+                    <img src="https://via.placeholder.com/150x60?text=OXO" alt="OXO" class="h-10 opacity-70 hover:opacity-100 transition duration-300">
                 </div>
-                <div class="feature-card bg-gray-50 p-8 rounded-lg text-center hover:shadow-lg transition duration-300">
-                    <div class="feature-icon text-yellow-500 text-4xl mb-4">
-                        <i class="fas fa-gift"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Perfect Gifts</h3>
-                    <p class="text-gray-600">Ideal presents for chicken lovers, home cooks, and kitchen enthusiasts.</p>
+                <div class="flex justify-center items-center h-16">
+                    <img src="https://via.placeholder.com/150x60?text=KitchenAid" alt="KitchenAid" class="h-12 opacity-70 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex justify-center items-center h-16">
+                    <img src="https://via.placeholder.com/150x60?text=Furbo" alt="Furbo" class="h-10 opacity-70 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex justify-center items-center h-16">
+                    <img src="https://via.placeholder.com/150x60?text=Black+Decker" alt="Black+Decker" class="h-10 opacity-70 hover:opacity-100 transition duration-300">
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
-    <!-- Products Section -->
+    <!-- Categories Section -->
+    <!-- <section id="categories" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Shop By Category</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Find the perfect tools for every corner of your home</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <a href="#" class="category-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Kitchen Tools" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-white font-bold text-xl">Kitchen Essentials</h3>
+                            <p class="text-gray-200 text-sm">120+ Products</p>
+                        </div>
+                    </div>
+                </a>
+                
+
+                <a href="#" class="category-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1583845112203-454c1ba8b1a4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Cleaning Tools" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-white font-bold text-xl">Cleaning Tools</h3>
+                            <p class="text-gray-200 text-sm">85+ Products</p>
+                        </div>
+                    </div>
+                </a>
+                
+
+                <a href="#" class="category-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pet Tools" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-white font-bold text-xl">Pet Essentials</h3>
+                            <p class="text-gray-200 text-sm">65+ Products</p>
+                        </div>
+                    </div>
+                </a>
+                
+
+                <a href="#" class="category-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581093450021-33a0ebdb59e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Garden Tools" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-white font-bold text-xl">Garden Tools</h3>
+                            <p class="text-gray-200 text-sm">90+ Products</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Featured Products -->
     <section id="products" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Featured Products</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Browse our selection of the most egg-citing chicken kitchen gadgets available.</p>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Featured Products</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Handpicked selection of quality home tools</p>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                <!-- Product 1 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+            
+            <div id="products-grid-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
                     <div class="relative">
-                        <img src="images/01.jpg" alt="Chicken Egg Separator" class="w-full  object-cover">
+                        <img src="images/01.jpg" alt="Smart Blender" class="w-full object-cover">
                         <div class="absolute top-2 right-2 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded">BESTSELLER</div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Fullstar Vegetable Chopper and Spiralizer</h3>
-                        <p class="text-gray-600 mb-4">Food Chopper with Container, Fruit Slicer, Kitchen Gadgets & Accessories, Home Essentials (4 in 1, White)</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xl font-bold text-yellow-600">$29.99</span>
-                            <a href="https://amzn.to/4nRrJC1" target="_blank" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition duration-300">Buy Now</a>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Smart Blender Pro</h3>
+                                <p class="text-gray-600 text-sm">10-speed with touch control</p>
+                            </div>
+                            <div class="bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded">-20%</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Product 2 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="relative">
-                        <img src="images/02.jpg" alt="Hen Salt and Pepper Shakers" class="w-full  object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Ourokhome Cheese Grater</h3>
-                        <p class="text-gray-600 mb-4">Ourokhome Cheese Grater Hank Crank Cheese Shredder, Mandoline Vegetable Slicer with 5 Interchangeable Blades and Strong Suction Base for Fruit, Vegetables, Nuts Black</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xl font-bold text-yellow-600">$32.99</span>
-                            <a href="https://amzn.to/40YSquN" target="_blank" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition duration-300">Buy Now</a>
+                        <div class="mt-3 flex items-center">
+                            <div class="flex text-yellow-400 mr-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-gray-500 text-sm">(128)</span>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Product 3 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="relative">
-                        <img src="images/03.jpg" alt="Chicken Kitchen Timer" class="w-full object-cover">
-                        <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">NEW</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">MR.SIGA Soap Dispensing Palm Brush</h3>
-                        <p class="text-gray-600 mb-4">MR.SIGA Soap Dispensing Palm Brush, Kitchen Brush for Dish Pot Pan Sink Cleaning, Pack of 2, Navy/Blue</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xl font-bold text-yellow-600">$15.99</span>
-                            <a href="https://amzn.to/4kJohXD" target="_blank" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition duration-300">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 4 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="relative">
-                        <img src="images/04.jpg" alt="Rooster Measuring Cups" class="w-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Vegetable Peeler With Container</h3>
-                        <p class="text-gray-600 mb-4">Vegetable peeler with container,Set of 2 peelers with storage and 6 interchangeable blades kitchen gadget.Fruits and vegetables peelers for kitchen.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xl font-bold text-yellow-600">$13.99</span>
-                            <a href="https://amzn.to/46jTUn8" target="_blank" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition duration-300">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 5 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="relative">
-                        <img src="images/05.jpg" alt="Rooster Measuring Cups" class="w-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Egg Shell Opener</h3>
-                        <p class="text-gray-600 mb-4">2Pcs Egg Shell Opener, 2025 New Egg Cracker Tool for Raw Eggs, Hard Boiled Egg Peeler Egg Cube Egg Separator Handheld, Stainless Steel Eggshell Breaker Egg Shell Cutter Kitchen Gadgets（Orange+Yellow）</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xl font-bold text-yellow-600">$9.99</span>
-                            <a href="https://amzn.to/4kIR9Px" target="_blank" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition duration-300">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 6 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="relative">
-                        <img src="images/06.jpg" alt="Rooster Measuring Cups" class="w-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Oil Dispenser for Kitchen</h3>
-                        <p class="text-gray-600 mb-4">Oil Dispenser for Kitchen, 2 in 1 Olive Oil Sprayer, Olive Oil Dispenser Spray Bottle with Brush, Oil Sprayer for Cooking for Air Fryer, Barbecue, Salad 16oz/470ml (Black)</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xl font-bold text-yellow-600">$8.99</span>
+                        <div class="mt-4 flex justify-between items-center">
+                            <div>
+                                <span class="text-gray-500 line-through text-sm">$129.99</span>
+                                <span class="font-bold text-lg ml-2">$99.99</span>
+                            </div>
                             <a href="https://amzn.to/4m1Vpe8" target="_blank" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition duration-300">Buy Now</a>
                         </div>
                     </div>
-                </div>
-
-                <!-- Product 7 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="relative">
-                        <img src="images/07.jpg" alt="Rooster Measuring Cups" class="w-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Apple Peeler</h3>
-                        <p class="text-gray-600 mb-4">Apple Peeler Corer, Long lasting Chrome Cast Magnesium Alloy Apple Peeler Slicer Corer with Stainless Steel Blades and Powerful Suction Base for Apples and Potatoes(Red)</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xl font-bold text-yellow-600">$19.99</span>
-                            <a href="https://amzn.to/3TKr1Jd" target="_blank" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition duration-300">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 8 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <div class="relative">
-                        <img src="images/08.jpg" alt="Rooster Measuring Cups" class="w-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Vacuum Steamer</h3>
-                        <p class="text-gray-600 mb-4">Neakasa Magic 1 Vacuum Steamer, Handheld Travel Garment Steamer for Clothes, 2300Pa Suction for Clothes Grips, Steamer Iron 2 In 1 (for 110-120V Use)</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xl font-bold text-yellow-600">$84.99</span>
-                            <a href="https://amzn.to/44HvZNa" target="_blank" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition duration-300">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
+                </div> 
+                -->
             </div>
-
-            <!-- <div class="text-center mt-12">
-                <a href="#" class="inline-block bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-8 rounded-lg transition duration-300">View All Products</a>
-            </div> -->
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="reviews" class="py-16 bg-white">
+    <!-- Deal of the Day -->
+    <!-- <section id="deals" class="py-16 deal-timer text-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">What Our Customers Say</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Don't just take our word for it - hear from our satisfied customers!</p>
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold mb-2">Deal of the Day</h2>
+                <p class="text-yellow-100">Limited time offer - Don't miss out!</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-8 rounded-lg">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-500 mr-2">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <span class="text-gray-600">5.0</span>
-                    </div>
-                    <p class="text-gray-700 mb-6">"The chicken egg separator is not only adorable but actually works better than any other separator I've tried. It's become my favorite kitchen tool!"</p>
-                    <div class="flex items-center">
-                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah J." class="w-10 h-10 rounded-full mr-3">
-                        <div>
-                            <h4 class="font-bold">Sarah J.</h4>
-                            <p class="text-gray-600 text-sm">Home Cook</p>
-                        </div>
+            
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-10">
+                    <div class="bg-white rounded-xl shadow-2xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1550583720-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Smart Coffee Maker" class="w-full h-64 md:h-80 object-cover">
                     </div>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-lg">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-500 mr-2">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <span class="text-gray-600">5.0</span>
-                    </div>
-                    <p class="text-gray-700 mb-6">"I bought the rooster measuring cups as a gift for my wife who collects chicken-themed items. She absolutely loves them and uses them daily!"</p>
-                    <div class="flex items-center">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael T." class="w-10 h-10 rounded-full mr-3">
-                        <div>
-                            <h4 class="font-bold">Michael T.</h4>
-                            <p class="text-gray-600 text-sm">Happy Husband</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-gray-50 p-8 rounded-lg">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-500 mr-2">
+                
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold mb-2">Smart Coffee Maker Pro</h3>
+                    <p class="text-yellow-100 mb-4">Brews perfect coffee with app control</p>
+                    
+                    <div class="flex items-center mb-6">
+                        <div class="flex text-yellow-300 mr-2">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star-half-alt"></i>
                         </div>
-                        <span class="text-gray-600">4.5</span>
+                        <span class="text-white">(428 reviews)</span>
                     </div>
-                    <p class="text-gray-700 mb-6">"The clucking timer is so much fun! My kids love it and it's actually helped them get more interested in cooking. Highly recommend for families."</p>
-                    <div class="flex items-center">
-                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Lisa M." class="w-10 h-10 rounded-full mr-3">
-                        <div>
-                            <h4 class="font-bold">Lisa M.</h4>
-                            <p class="text-gray-600 text-sm">Mom of Three</p>
+                    
+                    <div class="mb-6">
+                        <span class="text-2xl line-through opacity-70 mr-2">$199.99</span>
+                        <span class="text-4xl font-bold">$149.99</span>
+                        <span class="ml-2 bg-red-600 text-white text-sm font-bold px-2 py-1 rounded">25% OFF</span>
+                    </div>
+                    
+                    <p class="mb-6">The Smart Coffee Maker Pro connects to your WiFi, allowing you to schedule brews, adjust strength, and even start brewing from bed using your smartphone. Includes built-in grinder and thermal carafe.</p>
+                    
+                    <div class="mb-8">
+                        <h4 class="font-bold mb-3">HURRY! OFFER ENDS IN:</h4>
+                        <div class="flex space-x-2">
+                            <div class="bg-black bg-opacity-30 rounded-lg p-3 text-center w-16">
+                                <div class="text-2xl font-bold" id="deal-hours">12</div>
+                                <div class="text-xs">HOURS</div>
+                            </div>
+                            <div class="bg-black bg-opacity-30 rounded-lg p-3 text-center w-16">
+                                <div class="text-2xl font-bold" id="deal-minutes">45</div>
+                                <div class="text-xs">MINUTES</div>
+                            </div>
+                            <div class="bg-black bg-opacity-30 rounded-lg p-3 text-center w-16">
+                                <div class="text-2xl font-bold" id="deal-seconds">30</div>
+                                <div class="text-xs">SECONDS</div>
+                            </div>
                         </div>
                     </div>
+                    
+                    <div class="flex space-x-4">
+                        <button class="bg-white text-yellow-600 hover:bg-gray-100 font-bold py-3 px-6 rounded-lg transition duration-300 flex items-center">
+                            <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                        </button>
+                        <button class="border-2 border-white text-white hover:bg-white hover:text-yellow-600 font-bold py-3 px-6 rounded-lg transition duration-300">
+                            Buy Now
+                        </button>
+                    </div>
+                    
+                    <div class="mt-4 text-sm">
+                        <p><i class="fas fa-check-circle mr-2"></i> Free shipping on all orders</p>
+                        <p><i class="fas fa-check-circle mr-2"></i> 30-day money back guarantee</p>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Why Choose Us -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Why Choose HomeTool Hub</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We're committed to bringing you the best home tools at the best prices</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6 rounded-lg hover:shadow-lg transition duration-300">
+                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-medal text-yellow-500 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Quality Products</h3>
+                    <p class="text-gray-600">We carefully select each product to ensure durability, functionality, and style that lasts.</p>
+                </div>
+                
+                <div class="text-center p-6 rounded-lg hover:shadow-lg transition duration-300">
+                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tag text-yellow-500 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Best Prices</h3>
+                    <p class="text-gray-600">Our direct relationships with manufacturers allow us to offer competitive prices.</p>
+                </div>
+                
+                <div class="text-center p-6 rounded-lg hover:shadow-lg transition duration-300">
+                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-headset text-yellow-500 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Expert Support</h3>
+                    <p class="text-gray-600">Our team is available 7 days a week to help with any questions or concerns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="reviews" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">What Our Customers Say</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Don't just take our word for it - hear from our satisfied customers</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Sarah J.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"The smart blender I bought has completely changed my morning routine. It's powerful, easy to clean, and the app makes it so convenient!"</p>
+                    <div class="text-sm text-gray-500">
+                        <i class="fas fa-check-circle text-green-500 mr-1"></i> Verified Purchase
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Michael T." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Michael T.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"The pet camera is a game-changer! I can check on my dog anytime and even toss him treats while I'm at work. Shipping was super fast too."</p>
+                    <div class="text-sm text-gray-500">
+                        <i class="fas fa-check-circle text-green-500 mr-1"></i> Verified Purchase
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Jennifer L." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Jennifer L.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"I was hesitant about the price at first, but the robot vacuum has been worth every penny. My floors have never been cleaner with minimal effort."</p>
+                    <div class="text-sm text-gray-500">
+                        <i class="fas fa-check-circle text-green-500 mr-1"></i> Verified Purchase
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="#" class="inline-block border-2 border-gray-800 text-gray-800 font-bold py-3 px-8 rounded-lg hover:bg-gray-800 hover:text-white transition duration-300">Read More Reviews</a>
             </div>
         </div>
     </section>
 
     <!-- Blog Section -->
-    <section id="blog" class="py-16 bg-gray-50">
+    <section id="blog" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">From Our Blog</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Tips, tricks, and chicken-themed kitchen inspiration.</p>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">From Our Blog</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Tips, guides, and inspiration for your home</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-lg overflow-hidden shadow-md">
-                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Blog Post 1" class="w-full h-48 object-cover">
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Blog Post 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Kitchen Organization" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <span class="text-yellow-600 text-sm font-semibold">KITCHEN TIPS</span>
-                        <h3 class="text-xl font-bold my-2">5 Chicken-Themed Gadgets That Actually Improve Your Cooking</h3>
-                        <p class="text-gray-600 mb-4">Discover how these fun tools can make your kitchen time more efficient and enjoyable.</p>
-                        <a href="#" class="text-yellow-600 font-semibold hover:text-yellow-700 transition duration-300">Read More →</a>
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>June 15, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span>5 min read</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-2">10 Must-Have Kitchen Tools for Small Spaces</h3>
+                        <p class="text-gray-600 mb-4">Discover space-saving kitchen gadgets that maximize functionality without sacrificing style in compact kitchens.</p>
+                        <a href="#" class="text-yellow-500 font-medium hover:text-yellow-600 flex items-center">
+                            Read More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="bg-white rounded-lg overflow-hidden shadow-md">
-                    <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Blog Post 2" class="w-full h-48 object-cover">
+                
+                <!-- Blog Post 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pet Gadgets" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <span class="text-yellow-600 text-sm font-semibold">GIFT GUIDE</span>
-                        <h3 class="text-xl font-bold my-2">The Perfect Chicken-Lover's Gift Guide for Any Occasion</h3>
-                        <p class="text-gray-600 mb-4">Find the ideal present for the poultry enthusiast in your life with our curated selection.</p>
-                        <a href="#" class="text-yellow-600 font-semibold hover:text-yellow-700 transition duration-300">Read More →</a>
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>May 28, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span>7 min read</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-2">Smart Pet Gadgets for Busy Pet Parents</h3>
+                        <p class="text-gray-600 mb-4">Keep your furry friends happy and engaged even when you're away with these innovative pet tech solutions.</p>
+                        <a href="#" class="text-yellow-500 font-medium hover:text-yellow-600 flex items-center">
+                            Read More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="bg-white rounded-lg overflow-hidden shadow-md">
-                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Blog Post 3" class="w-full h-48 object-cover">
+                
+                <!-- Blog Post 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1583845112203-454c1ba8b1a4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Cleaning Hacks" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <span class="text-yellow-600 text-sm font-semibold">RECIPES</span>
-                        <h3 class="text-xl font-bold my-2">Farmhouse Chicken Dinner Using Only Chicken-Shaped Tools</h3>
-                        <p class="text-gray-600 mb-4">A delicious recipe that lets you show off all your favorite chicken kitchen gadgets.</p>
-                        <a href="#" class="text-yellow-600 font-semibold hover:text-yellow-700 transition duration-300">Read More →</a>
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>May 10, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span>4 min read</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-2">Cleaning Hacks: Tools That Save Time & Effort</h3>
+                        <p class="text-gray-600 mb-4">Transform your cleaning routine with these game-changing tools that make household chores quicker and easier.</p>
+                        <a href="#" class="text-yellow-500 font-medium hover:text-yellow-600 flex items-center">
+                            Read More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
                 </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="#" class="inline-block border-2 border-gray-800 text-gray-800 font-bold py-3 px-8 rounded-lg hover:bg-gray-800 hover:text-white transition duration-300">View All Articles</a>
             </div>
         </div>
     </section>
 
-    <!-- Newsletter Section -->
-    <section class="py-16 bg-yellow-50">
+    <!-- Newsletter -->
+    <section class="py-16 newsletter-bg text-white">
         <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-md p-8 md:p-12 text-center">
-                <i class="fas fa-envelope-open-text text-yellow-500 text-5xl mb-6"></i>
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Join Our Flock!</h2>
-                <p class="text-gray-600 mb-8">Subscribe to our newsletter for exclusive deals, new product announcements, and chicken-themed kitchen tips.</p>
-                <form class="flex flex-col sm:flex-row gap-4">
-                    <input type="email" placeholder="Your email address" class="newsletter-input flex-grow px-4 py-3 border border-gray-300 rounded-lg focus:border-yellow-500">
-                    <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold px-6 py-3 rounded-lg transition duration-300">Subscribe</button>
-                </form>
-                <p class="text-gray-500 text-sm mt-4">We respect your privacy. Unsubscribe at any time.</p>
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">Join Our Newsletter</h2>
+                <p class="mb-8">Subscribe to get exclusive deals, new product alerts, and home improvement tips delivered straight to your inbox.</p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                    <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                    <button class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold px-6 py-3 rounded-lg transition duration-300 whitespace-nowrap">
+                        Subscribe Now
+                    </button>
+                </div>
+                
+                <p class="mt-4 text-sm text-gray-300">We respect your privacy. Unsubscribe at any time.</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <!-- Column 1 -->
                 <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <i class="fas fa-utensils text-yellow-500 text-2xl"></i>
-                        <span class="text-xl font-bold">Kitchen Essentials</span>
-                    </div>
-                    <p class="text-gray-400 mb-4">Premium kitchen tools designed to make cooking easier and more enjoyable since 2015.</p>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-tools text-yellow-500 mr-2"></i>
+                        <span>Home<span class="text-yellow-500">Tool</span>Hub</span>
+                    </h3>
+                    <p class="mb-4 text-gray-400">Your one-stop shop for quality home tools and gadgets that make life easier and more enjoyable.</p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition"><i class="fab fa-pinterest-p"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-400"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-400"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-400"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-400"><i class="fab fa-pinterest-p"></i></a>
                     </div>
                 </div>
+                
+                <!-- Column 2 -->
                 <div>
-                    <h3 class="text-lg font-bold mb-4">Shop</h3>
+                    <h4 class="font-bold text-lg mb-4">Shop</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">All Products</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">New Arrivals</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Bestsellers</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Gift Sets</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Sale Items</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400">Kitchen Tools</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400">Cleaning Supplies</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400">Pet Accessories</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400">Garden Tools</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400">Home Organization</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400">Smart Home Gadgets</a></li>
                     </ul>
                 </div>
+                
+                <!-- Column 3 -->
                 <div>
-                    <h3 class="text-lg font-bold mb-4">About</h3>
+                    <h4 class="font-bold text-lg mb-4">Customer Service</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Our Story</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Blog</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Reviews</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Affiliates</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400">Shipping Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400">Returns & Exchanges</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400">Product Care</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400">Track Order</a></li>
                     </ul>
                 </div>
+                
+                <!-- Column 4 -->
                 <div>
-                    <h3 class="text-lg font-bold mb-4">Help</h3>
+                    <h4 class="font-bold text-lg mb-4">About Us</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">FAQs</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Shipping</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Returns</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Privacy Policy</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400">Our Story</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400">Reviews</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
-                <p>© 2023 Cluck & Cook. All rights reserved. | This site contains affiliate links.</p>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 mb-4 md:mb-0">© 2023 HomeTool Hub. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <img src="https://via.placeholder.com/50x30?text=Visa" alt="Visa" class="h-8">
+                    <img src="https://via.placeholder.com/50x30?text=MC" alt="Mastercard" class="h-8">
+                    <img src="https://via.placeholder.com/50x30?text=Amex" alt="American Express" class="h-8">
+                    <img src="https://via.placeholder.com/50x30?text=PayPal" alt="PayPal" class="h-8">
+                </div>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Simple JavaScript for mobile menu toggle (could be expanded)
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.querySelector('.md\\:hidden');
-            const mobileMenu = document.querySelector('.md\\:flex');
-            
-            mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenu.classList.toggle('flex');
-                mobileMenu.classList.toggle('flex-col');
-                mobileMenu.classList.toggle('absolute');
-                mobileMenu.classList.toggle('top-16');
-                mobileMenu.classList.toggle('left-0');
-                mobileMenu.classList.toggle('right-0');
-                mobileMenu.classList.toggle('bg-white');
-                mobileMenu.classList.toggle('p-4');
-                mobileMenu.classList.toggle('shadow-md');
-                mobileMenu.classList.toggle('space-y-4');
-                mobileMenu.classList.toggle('space-x-0');
-            });
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if(targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if(targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        });
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-gray-800 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-gray-900">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-    </script>
+    <!-- Tooltip for Affiliate Disclosure -->
+    <div class="fixed bottom-4 left-4 bg-gray-800 text-white text-xs px-3 py-2 rounded-lg shadow-lg flex items-center">
+        <span class="mr-2">ℹ️</span>
+        <span>Disclosure: As an Amazon Associate we earn from qualifying purchases.</span>
+    </div>
+
+
+    <script src="scripts/products.js"></script>
+    <script src="scripts/main.js"></script>
 </body>
 </html>
