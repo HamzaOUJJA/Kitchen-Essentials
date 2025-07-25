@@ -61,7 +61,6 @@
 </head>
 <body class="bg-gray-50">
 
-    <!-- Header -->
     <header class="sticky top-0 z-50 bg-white shadow-md">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center">
@@ -73,7 +72,6 @@
             
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#" class="font-medium hover:text-yellow-500">Home</a>
-                <!-- <a href="#categories" class="font-medium hover:text-yellow-500">Categories</a> -->
                 <a href="../index.html" class="font-medium hover:text-yellow-500">Products</a>
                 <a href="../index.html" class="font-medium hover:text-yellow-500">Deals</a>
                 <a href="../index.html" class="font-medium hover:text-yellow-500">Reviews</a>
@@ -94,7 +92,6 @@
             </div>
         </div>
         
-        <!-- Mobile Menu -->
         <div class="md:hidden hidden bg-white shadow-lg" id="mobile-menu">
             <div class="px-4 py-2 space-y-2">
                 <a href="#" class="block py-2 font-medium hover:text-yellow-500">Home</a>
@@ -106,10 +103,8 @@
         </div>
     </header>
 
-    <!-- Main Product Section -->
     <div class="container mx-auto px-4 py-12">
         <div class="flex flex-col lg:flex-row gap-12">
-            <!-- Product Images -->
             <div class="lg:w-1/2">
                 <div class="bg-white p-6 rounded-xl shadow-lg mb-6">
                     <img id="mainImage" src="../images/product_1_1.jpg" alt="Premium Wireless Headphones" class="main-image w-full h-auto rounded-lg">
@@ -122,7 +117,6 @@
                 </div>
             </div>
 
-            <!-- Product Info -->
             <div class="lg:w-1/2">
                 <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Fullstar Vegetable Chopper and Spiralizer</h1>
                 <div class="flex items-center mb-4">
@@ -163,32 +157,6 @@
                     </div>
                 </div>
 
-                <!-- <div class="mb-8">
-                    <h3 class="text-lg font-semibold mb-2">Highlights</h3>
-                    <ul class="space-y-2 text-gray-700">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Active Noise Cancellation (ANC) technology</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>40mm dynamic drivers for crystal clear sound</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>30-hour battery life with quick charge (5 min = 4 hours)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Built-in microphone with clear voice capture</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Comfortable memory foam ear cushions</span>
-                        </li>
-                    </ul>
-                </div> -->
-
                 <div class="flex flex-col sm:flex-row gap-4">
                     <div class="flex items-center border rounded-lg px-4 py-2 w-full sm:w-auto">
                         <button class="text-gray-500 text-xl px-2" onclick="updateQuantity('decrease')">-</button>
@@ -209,13 +177,46 @@
                 </div>
             </div>
         </div>
+        
+        <div class="mt-16 bg-white p-8 rounded-xl shadow-lg">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Product Description</h2>
+            <p class="text-gray-700 leading-relaxed mb-8">
+                The Fullstar Vegetable Chopper and Spiralizer is your ultimate kitchen companion for preparing healthy and delicious meals with ease. This versatile tool combines multiple functions into one compact device, allowing you to chop, dice, slice, and spiralize a wide variety of vegetables and fruits in minutes. Made from high-quality, durable materials, it's designed for long-lasting performance and effortless cleaning. Say goodbye to tedious knife work and hello to efficient, fun, and safe food preparation.
+            </p>
+
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Key Features</h3>
+            <ul class="space-y-3 text-gray-700">
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                    <span>**All-in-One Versatility:** Chop, dice, slice, julienne, and spiralize with interchangeable blades for endless culinary possibilities.</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                    <span>**High-Quality Stainless Steel Blades:** Ultra-sharp blades ensure precise and effortless cuts every time.</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                    <span>**Safe and Easy to Use:** Features a finger guard and non-slip base for secure operation, minimizing the risk of accidents.</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                    <span>**Large Capacity Container:** Collects chopped ingredients directly, keeping your countertop clean and organized.</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                    <span>**Easy to Clean:** All components are detachable and dishwasher-safe for quick and convenient cleanup.</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                    <span>**Compact and Space-Saving Design:** Stores neatly in your kitchen cabinet, perfect for any size kitchen.</span>
+                </li>
+            </ul>
+        </div>
     </div>
 
-    <!-- Footer -->
     <footer class="bg-gray-900 text-white pt-16 pb-8">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-                <!-- Column 1 -->
                 <div>
                     <h3 class="text-xl font-bold mb-4 flex items-center">
                         <i class="fas fa-tools text-yellow-500 mr-2"></i>
@@ -230,7 +231,6 @@
                     </div>
                 </div>
                 
-                <!-- Column 2 -->
                 <div>
                     <h4 class="font-bold text-lg mb-4">Shop</h4>
                     <ul class="space-y-2">
@@ -243,7 +243,6 @@
                     </ul>
                 </div>
                 
-                <!-- Column 3 -->
                 <div>
                     <h4 class="font-bold text-lg mb-4">Customer Service</h4>
                     <ul class="space-y-2">
@@ -256,7 +255,6 @@
                     </ul>
                 </div>
                 
-                <!-- Column 4 -->
                 <div>
                     <h4 class="font-bold text-lg mb-4">About Us</h4>
                     <ul class="space-y-2">
@@ -282,12 +280,10 @@
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
     <button id="back-to-top" class="fixed bottom-8 right-8 bg-gray-800 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-gray-900">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Tooltip for Affiliate Disclosure -->
     <div class="fixed bottom-4 left-4 bg-gray-800 text-white text-xs px-3 py-2 rounded-lg shadow-lg flex items-center">
         <span class="mr-2">ℹ️</span>
         <span>Disclosure: As an Amazon Associate we earn from qualifying purchases.</span>
