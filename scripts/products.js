@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const products = [
         {
             id: 1,
-            image: 'images/01.jpg', // Path to your product image
+            image: 'images/product_1_1.jpg', // Path to your product image
             alt: 'Fullstar Vegetable Chopper and Spiralizer',
             isBestseller: true,
             isNew: false, // Add a flag for 'New' if applicable
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 2,
-            image: 'images/02.jpg',
+            image: 'images/product_2_1.jpg',
             alt: 'Ourokhome Cheese Grater',
             isBestseller: false,
             isNew: false,
@@ -31,11 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
             rating: 4.5,
             reviewsCount: '1,502',
             affiliateLink: 'https://amzn.to/40YSquN',
-            pageLink: 'pages/product_1.html'
+            pageLink: 'pages/product_2.html'
         },
         {
             id: 3,
-            image: 'images/03.jpg',
+            image: 'images/product_3_1.jpg',
             alt: 'MR.SIGA Soap Dispensing Palm Brush',
             isBestseller: false,
             isNew: false,
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 4,
-            image: 'images/04.jpg',
+            image: 'images/product_4_1.jpg',
             alt: 'Vegetable Peeler With Container',
             isBestseller: false,
             isNew: false,
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 5,
-            image: 'images/05.jpg',
+            image: 'images/product_5_1.jpg',
             alt: 'Egg Shell Opener',
             isBestseller: false,
             isNew: false,
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 6,
-            image: 'images/06.jpg',
+            image: 'images/product_6_1.jpg',
             alt: 'Oil Dispenser',
             isBestseller: false,
             isNew: false,
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 7,
-            image: 'images/07.jpg',
+            image: 'images/product_7_1.jpg',
             alt: 'Apple Peeler',
             isBestseller: true,
             isNew: false,
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 8,
-            image: 'images/08.jpg',
+            image: 'images/product_8_1.jpg',
             alt: 'Vacuum Steamer',
             isBestseller: false,
             isNew: true,
