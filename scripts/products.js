@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             rating: 4.5, // Number of stars (e.g., 4.5 for 4 and a half stars)
             reviewsCount: '119,463',
             affiliateLink: 'https://amzn.to/4nRrJC1',
-            pageLink: 'pages/product_1.html'
+            pageLink: 'https://amzn.to/4nRrJC1'
         },
         {
             id: 2,
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             rating: 4.5,
             reviewsCount: '1,502',
             affiliateLink: 'https://amzn.to/40YSquN',
-            pageLink: 'pages/product_2.html'
+            pageLink: 'https://amzn.to/40YSquN'
         },
         {
             id: 3,
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
             rating: 4.5,
             reviewsCount: '5,502',
             affiliateLink: 'https://amzn.to/4kJohXD',
-            pageLink: 'pages/product_1.html'
+            pageLink: 'https://amzn.to/4kJohXD'
         },
         {
             id: 4,
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             rating: 4,
             reviewsCount: '86',
             affiliateLink: 'https://amzn.to/3IGUoK5',
-            pageLink: 'pages/product_1.html'
+            pageLink: 'https://amzn.to/3IGUoK5'
         },
         {
             id: 5,
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
             rating: 4.5,
             reviewsCount: '25',
             affiliateLink: 'https://amzn.to/4kIR9Px',
-            pageLink: 'pages/product_1.html'
+            pageLink: 'https://amzn.to/4kIR9Px'
         },
         {
             id: 6,
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             rating: 4.5,
             reviewsCount: '1,002',
             affiliateLink: 'https://amzn.to/4m1Vpe8',
-            pageLink: 'pages/product_1.html'
+            pageLink: 'https://amzn.to/4m1Vpe8'
         },
         {
             id: 7,
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
             rating: 4.5,
             reviewsCount: '1,033',
             affiliateLink: 'https://amzn.to/3TKr1Jd',
-            pageLink: 'pages/product_1.html'
+            pageLink: 'https://amzn.to/3TKr1Jd'
         },
         {
             id: 8,
@@ -120,7 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
             reducedPrice: 84.99,
             rating: 4,
             reviewsCount: '287',
-            affiliateLink: 'https://amzn.to/44HvZNa'
+            affiliateLink: 'https://amzn.to/44HvZNa',
+            pageLink: 'https://amzn.to/44HvZNa'
         }
     ];
 
